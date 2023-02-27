@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{table.id}}</title>
+    <style>
+        .alert table {
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
+        .alert {
+            margin-bottom: 10px;
+        }
+        .comments{
+            padding: 10px;
+        }
+        .comments div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert">
+        <table>
+            <tbody>
+                <tr><td>OS</td><td>{{table.os}}</td></tr>
+                <tr><td>ID</td><td>{{table.id}}</td></tr>
+                <tr><td>VALUE</td><td>{{table.Value}}</td></tr>
+                <tr><td>ALARMS</td><td>{{table.Alarms}}</td></tr>
+            </tbody> 
+        </table>
+    </div>
+
+    <div class="comments">
+        {%for i in comments %}        
+            <div>{{i.comment}}</div>  
+        {%endfor%}
+    </div>
+    
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name='item_id' value="{{table.id}}"/>
+        <input name='comment' />
+    </form>
+
+</body>
+</html>

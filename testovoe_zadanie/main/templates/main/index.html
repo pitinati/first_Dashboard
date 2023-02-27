@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block content%}
+<table>
+    <tr>
+        <td>RANG</td>
+        <td>OS</td>
+        <td>ID</td>
+        <td>VALUE</td>
+        <td>ALARMS</td>
+    </tr>
+    {%for i in table %}       
+        <tr>
+            <td>{{i.rang}}</td>
+            <td>{{i.os}}</td>
+            <td><a href='id{{i.id}}'>{{i.id}}</a></td>
+            <td>{{i.Value}}</td>
+            <td>{{i.Alarms}}</td>
+        </tr>  
+    {%endfor%}
+</table>
+{% endblock content %}
